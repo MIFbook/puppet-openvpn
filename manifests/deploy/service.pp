@@ -3,7 +3,8 @@
 #
 class openvpn::deploy::service {
 
-  service { 'openvpn':
+  # Based on CentOS openvpn service naming
+  service { "openvpn@${title}":
     ensure     => running,
     enable     => true,
     hasrestart => true,

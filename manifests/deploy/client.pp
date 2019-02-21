@@ -17,7 +17,7 @@ define openvpn::deploy::client (
 
   Class['openvpn::deploy::install']
   -> Openvpn::Deploy::Client[$name]
-  ~> Class['openvpn::deploy::service']
+  # ~> Class['openvpn::deploy::service']
 
 
   if $manage_etc {
@@ -37,6 +37,6 @@ define openvpn::deploy::client (
   }
 
   File <<| tag == "${server}-${name}" |>>
-  ~> Class['openvpn::deploy::service']
+  # ~> Class['openvpn::deploy::service']
 
 }
